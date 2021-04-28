@@ -38,6 +38,7 @@ def record_all_occurrences(in_stream, out_stream,
         target_regex,
         start_regex = None,
         stop_regex = None):
+
 #   Finds all occurrences of the regular expression pattern `target_regex` in
  #   `in_stream`, and writes the line number and the found string to
   #  `out_stream`.
@@ -76,7 +77,7 @@ def record_all_occurrences(in_stream, out_stream,
 
 
     num_occurrences = 0
-    for line_index, match_obj in find_iter(in_stream, target_regex,
+    for line_index, match_obj in find_iter(in_stream, target_regex, #pretty sure we're creating a counter var line_index that also serves as the means to find line number
             start_regex, stop_regex):
         num_occurrences += 1
         for target_str in match_obj.groups():
@@ -99,6 +100,6 @@ if __name__ == '__main__':
                     target_regex = target_pattern,
                     start_regex = start_pattern,
                     stop_regex = stop_pattern)
-    message = "Chucky D referred to heritability {0} times!".format(
+    message = "Chucky D referred to heritability {0} times!".format( #absolutely love this
             num_occurrences)
     print(message)
